@@ -1,116 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
-
-@keyframes binarySunset {
-  0% { /* Начало заката / Сумерки */
-    background-color: #1A237E; /* Глубокий индиго */
-    background-image:
-      radial-gradient(ellipse at 15% 20%, #FFD700 0%, #FFA500 25%, rgba(255,165,0,0) 60%), /* Яркое первое солнце */
-      radial-gradient(ellipse at 85% 25%, #FF8C00 0%, #CD5C5C 30%, rgba(205,92,92,0) 65%), /* Второе оранжево-красное солнце */
-      linear-gradient(to bottom, #0B0C10 0%, #1C2541 25%, #303F9F 50%, #FF8A65 85%, #FFCC80 100%); /* Небо: от темного к оранжевому горизонту */
-  }
-  50% { /* Глубокий закат */
-    background-color: #0D1B2A; /* Очень темный синий */
-    background-image:
-      radial-gradient(ellipse at 15% 40%, #FF6347 0%, #DC143C 30%, rgba(220,20,60,0) 60%), /* Первое солнце садится, краснеет */
-      radial-gradient(ellipse at 85% 45%, #FF4500 0%, #8B0000 35%, rgba(139,0,0,0) 65%), /* Второе солнце садится, темно-красное */
-      linear-gradient(to bottom, #000000 0%, #0D1B2A 30%, #4A0072 60%, #7B1FA2 80%, #E53935 100%); /* Небо: от черного к темно-фиолетовому и красному горизонту */
-  }
-  100% { /* Ночь */
-    background-color: #000000; /* Черный */
-    background-image:
-      radial-gradient(ellipse at 15% 60%, rgba(255,0,0,0.1) 0%, rgba(139,0,0,0) 50%), /* Едва заметное первое солнце */
-      radial-gradient(ellipse at 85% 65%, rgba(200,0,0,0.05) 0%, rgba(139,0,0,0) 50%), /* Едва заметное второе солнце */
-      linear-gradient(to bottom, #000000 0%, #0B0C10 20%, #1C1C1C 50%, #2D2D2D 100%); /* Темное ночное небо */
-  }
-}
-
 body {
-  font-family: 'Roboto', sans-serif;
-  color: #E0E0E0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #0A0018, #3C1A5B 40%, #7E3F8F 70%, #FFA15C 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #F4F4F4;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
   margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-attachment: fixed; /* Фон не скроллится */
-
-  /* Применение анимации */
-  animation-name: binarySunset;
-  animation-duration: 120s; /* Длительность анимации (2 минуты) */
-  animation-timing-function: linear; /* Плавный переход */
-  animation-iteration-count: infinite; /* Бесконечное повторение */
-  animation-direction: alternate; /* Анимация проигрывается вперед, затем назад */
+  padding: 2em;
 }
 
 main {
   max-width: 800px;
-  width: 90%;
-  margin: 2em auto;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 2em;
-  background: rgba(11, 12, 16, 0.85); /* Немного увеличил непрозрачность для лучшей читаемости */
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.2); /* Уменьшил интенсивность тени */
-  border: 1px solid rgba(169, 185, 217, 0.3);
-  position: relative; /* Чтобы main был поверх анимированного фона body */
-  z-index: 1; /* Убедимся, что main выше фона */
+  border-radius: 12px;
 }
 
 h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.8em;
-  margin-bottom: 0.7em;
-  color: #FFD700;
-  text-align: center;
-  text-shadow: 0 0 10px #FFA500;
-}
-
-h2, h3 {
-  font-family: 'Orbitron', sans-serif;
-  color: #A9B9D9;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7;
-  color: #E0E0E0;
-  margin-bottom: 1.2em;
-}
-
-nav {
-  text-align: center;
-  margin-top: 2em;
-  padding-top: 1em;
-  border-top: 1px solid rgba(169, 185, 217, 0.2);
+  font-size: 3em;
+  margin-bottom: 0.5em;
 }
 
 nav a {
-  font-family: 'Orbitron', sans-serif;
-  margin: 0 1.2em;
+  margin-right: 1em;
   text-decoration: none;
-  color: #A9B9D9;
-  font-size: 1.1em;
-  padding: 0.5em 0.8em;
-  border-radius: 5px;
-  transition: color 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease;
-}
-
-nav a:hover, nav a:focus {
-  color: #FFD700;
-  background-color: rgba(255, 215, 0, 0.1);
-  text-shadow: 0 0 8px #FFA500;
-}
-
-iframe {
-  display: block;
-  max-width: 100%;
-  border: 2px solid rgba(169, 185, 217, 0.5);
-  border-radius: 8px;
-  margin: 1.5em auto;
-  box-shadow: 0 0 15px rgba(109, 213, 250, 0.2);
-}
-
-.about-page h1 {
-  color: #A9B9D9;
-  text-shadow: 0 0 8px #5C6E80;
+  color: #FFD8E1;
 }
