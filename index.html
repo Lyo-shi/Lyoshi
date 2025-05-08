@@ -1,23 +1,71 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lyoshi</title>
-  <link rel="stylesheet" href="style.css" />
+<html lang="en"> <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About - Lyoshi</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <main>
-    <h1>Lyoshi</h1>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/lc5eJp82IvY?si=ZQlIghBdwMck6HrZ" 
-      frameborder="0" allowfullscreen></iframe>
-    <p>Сострадание — самая важная штука в мире. Я создаю музыку, чтобы вызывать это чувство.</p>
-    <nav>
-      <a href="compositions/">Compositions</a> |
-      <a href="sketches/">Sketches</a> |
-      <a href="about.html">About</a>
-    </nav>
-  </main>
+    <div class="site-container">
+        <aside class="sidebar">
+            <h1 class="site-title">Lyoshi</h1>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="compositions.html">Compositions</a>
+                <a href="sketches.html">Sketches</a>
+                <a href="about.html">About</a>
+            </nav>
+             <div class="sidebar-footer">
+                 <p class="tagline">Music to evoke compassion.</p>
+            </div>
+        </aside>
+
+        <main class="main-content page-content">
+            <article class="about-section">
+                <h2>About Me</h2>
+                <img src="https://placehold.co/800x500/100820/EAEAEA?text=Alexey+Kozlov" alt="Фото Алексея Козлова" class="about-image">
+                
+                <p>I'm Alexey Kozlov, a composer and musician with over 20 years of experience. My musical journey has taken me through various traditions, instruments, and philosophies that have shaped me into the composer I am today.</p>
+
+                <p>My path began with crafting bamboo flutes and playing guitar. I spent time in India, where I studied classical Indian music and konnakol (vocal percussion).</p>
+
+                <p>For many years, I worked as a jazz guitarist, exploring harmonic possibilities and improvisational freedom. This experience taught me to balance structure with spontaneity, tradition with innovation.</p>
+
+                <p>Currently, I'm immersed in studying Joseph Schillinger's system of composition — a revolutionary mathematical approach to musical composition that opens new horizons in my creative work.</p>
+
+                <p>Through this website, I share my compositions and musical sketches, documenting my creative process and growth as a composer.</p>
+                
+                <hr>
+                <h2>Philosophy</h2>
+                <p>Compassion is the most important thing in the world. I create music to evoke this feeling.</p>
+                <p>(Original Russian: Сострадание — самая важная штука в мире. Я создаю музыку, чтобы вызывать это чувство.)</p>
+
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h4>Contact Me</h4>
+                <p><a href="mailto:alexey.kozlov.composer@example.com">alexey.kozlov.composer@example.com</a></p>
+                <p>Telegram: <a href="https://t.me/yourprofile" target="_blank">@yourprofile</a></p>
+            </div>
+            <div class="social-links">
+                <h4>Follow Me</h4>
+                <a href="https://youtube.com/yourchannel" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://soundcloud.com/yourprofile" target="_blank" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+                <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; <span id="currentYear"></span> Alexey Kozlov (Lyoshi). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
