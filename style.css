@@ -1,30 +1,395 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Oswald:wght@400;500;700&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+    --bg-color-dark: #0A0514; /* Очень темный фиолетово-черный */
+    --bg-color-medium: #100820; /* Темно-фиолетовый */
+    --bg-color-light: #1A122E; /* Чуть светлее фиолетовый для акцентов/карточек */
+    --text-color-primary: #EAEAEA; /* Основной светлый текст */
+    --text-color-secondary: #A0A0C0; /* Вторичный, менее яркий текст */
+    --accent-color: #8A9BC8; /* Холодный сине-фиолетовый акцент */
+    --accent-color-hover: #AAB8D8;
+    --border-color: #2A2042; /* Цвет для границ */
+
+    --font-primary: 'Inter', sans-serif;
+    --font-headings: 'Oswald', sans-serif;
+
+    --sidebar-width: 260px;
+}
+
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #0A0018, #3C1A5B 40%, #7E3F8F 70%, #FFA15C 100%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #F4F4F4;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  margin: 0;
-  padding: 2em;
+    font-family: var(--font-primary);
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-primary);
+    line-height: 1.6;
+    display: flex; /* Используем flex для прижатия футера */
+    flex-direction: column; /* Располагаем элементы в столбец */
+    min-height: 100vh; /* Минимальная высота равна высоте видимой области */
+    background-image: linear-gradient(to bottom, var(--bg-color-medium) 0%, var(--bg-color-dark) 30%, var(--bg-color-dark) 100%);
 }
 
-main {
-  max-width: 800px;
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 2em;
-  border-radius: 12px;
+.site-container {
+    display: flex;
+    flex-grow: 1; /* Позволяет этому контейнеру занимать все доступное пространство */
 }
 
-h1 {
-  font-size: 3em;
-  margin-bottom: 0.5em;
+/* --- Sidebar --- */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-color-medium);
+    padding: 2.5em 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Элементы прижаты к левому краю */
+    height: 100vh; /* Занимает всю высоту экрана */
+    position: fixed; /* Фиксируем сайдбар */
+    left: 0;
+    top: 0;
+    border-right: 1px solid var(--border-color);
 }
 
-nav a {
-  margin-right: 1em;
-  text-decoration: none;
-  color: #FFD8E1;
+.site-title {
+    font-family: var(--font-headings);
+    font-size: 2.5rem; /* Увеличил размер */
+    color: var(--text-color-primary);
+    margin-bottom: 2em;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Занимает всю ширину сайдбара */
+}
+
+.main-nav a {
+    font-family: var(--font-headings);
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    font-size: 1.2rem; /* Увеличил размер */
+    padding: 0.8em 0; /* Отступы сверху/снизу */
+    margin-bottom: 0.5em;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    border-left: 3px solid transparent; /* Для эффекта при наведении */
+}
+
+.main-nav a:hover,
+.main-nav a:focus,
+.main-nav a.active { /* Можно добавить класс active для текущей страницы */
+    color: var(--text-color-primary);
+    padding-left: 10px; /* Сдвиг текста вправо */
+    border-left: 3px solid var(--accent-color);
+}
+
+.sidebar-footer {
+    margin-top: auto; /* Прижимает этот блок к низу сайдбара */
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+    font-style: italic;
+}
+
+
+/* --- Main Content Area --- */
+.main-content {
+    flex-grow: 1;
+    padding: 2em 3em;
+    margin-left: var(--sidebar-width); /* Отступ слева, равный ширине сайдбара */
+    overflow-y: auto; /* Позволяет прокручивать только основной контент */
+}
+
+.page-content { /* Для страниц типа About */
+    max-width: 900px;
+    margin: 0 auto; /* Центрирование контента страницы */
+}
+
+/* --- Hero Video --- */
+.hero-video {
+    margin-bottom: 3em;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.hero-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- Blog Preview Section --- */
+.blog-preview h2 {
+    font-family: var(--font-headings);
+    font-size: 2rem;
+    color: var(--text-color-primary);
+    margin-bottom: 1.5em;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5em;
+}
+
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+}
+
+.blog-post-card {
+    background-color: var(--bg-color-light);
+    padding: 1.5em;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.blog-post-image {
+    width: 100%;
+    height: 200px; /* Фиксированная высота для единообразия */
+    object-fit: cover; /* Масштабирует изображение, сохраняя пропорции и обрезая */
+    border-radius: 6px;
+    margin-bottom: 1em;
+}
+
+.blog-post-card h3 {
+    font-family: var(--font-headings);
+    font-size: 1.4rem;
+    margin-bottom: 0.5em;
+}
+
+.blog-post-card h3 a {
+    color: var(--text-color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blog-post-card h3 a:hover {
+    color: var(--accent-color);
+}
+
+.blog-post-card p {
+    font-size: 0.95rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 1em;
+    flex-grow: 1; /* Чтобы текст занимал доступное место, прижимая кнопку "Читать далее" вниз */
+}
+
+.read-more {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    align-self: flex-start; /* Кнопка прижата к левому краю */
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--accent-color-hover);
+}
+
+/* --- About Page Specifics --- */
+.about-section h2 {
+    font-family: var(--font-headings);
+    font-size: 2.2rem;
+    color: var(--text-color-primary);
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5em;
+}
+.about-section h2:first-of-type {
+    margin-top: 0;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 600px; /* Ограничение ширины изображения */
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto 1.5em auto; /* Центрирование и отступ снизу */
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.about-section p {
+    margin-bottom: 1.2em;
+    font-size: 1.05rem;
+    color: var(--text-color-secondary);
+}
+.about-section p:last-of-type {
+    margin-bottom: 0;
+}
+.about-section hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 2em 0;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--bg-color-medium);
+    color: var(--text-color-secondary);
+    padding: 2em 3em; /* Отступы по бокам как у .main-content */
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-left: var(--sidebar-width); /* Отступ слева, чтобы футер не заезжал под сайдбар */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+.contact-info h4,
+.social-links h4 {
+    font-family: var(--font-headings);
+    color: var(--text-color-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.8em;
+}
+
+.contact-info p,
+.contact-info a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0.3em;
+}
+
+.contact-info a:hover {
+    color: var(--accent-color);
+}
+
+.social-links a {
+    color: var(--text-color-secondary);
+    font-size: 1.5rem; /* Размер иконок */
+    margin-right: 1em;
+    transition: color 0.3s ease;
+}
+.social-links a:last-child {
+    margin-right: 0;
+}
+
+.social-links a:hover {
+    color: var(--accent-color-hover);
+}
+
+.copyright {
+    font-size: 0.85rem;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) { /* Планшеты и большие телефоны */
+    :root {
+        --sidebar-width: 220px;
+    }
+    .main-content {
+        padding: 1.5em 2em;
+    }
+    .blog-posts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5em;
+    }
+}
+
+@media (max-width: 768px) { /* Мобильные устройства */
+    .site-container {
+        flex-direction: column; /* Сайдбар и контент друг под другом */
+    }
+    .sidebar {
+        width: 100%;
+        height: auto; /* Автоматическая высота */
+        position: static; /* Убираем фиксацию */
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.5em;
+    }
+    .site-title {
+        font-size: 2rem;
+        margin-bottom: 1em;
+    }
+    .main-nav {
+        flex-direction: row; /* Горизонтальная навигация */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5em 1em;
+    }
+    .main-nav a {
+        font-size: 1rem;
+        padding: 0.5em 0.8em;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+    }
+    .main-nav a:hover,
+    .main-nav a:focus,
+    .main-nav a.active {
+        padding-left: 0.8em; /* Возвращаем отступ */
+        border-left: none;
+        border-bottom: 2px solid var(--accent-color);
+    }
+    .sidebar-footer {
+        display: none; /* Можно скрыть тэглайн на мобильных для экономии места */
+    }
+
+    .main-content {
+        margin-left: 0; /* Убираем отступ */
+        padding: 1.5em;
+    }
+    .hero-video {
+        margin-bottom: 2em;
+    }
+    .blog-preview h2 {
+        font-size: 1.8rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .contact-info, .social-links {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+    footer {
+        margin-left: 0; /* Убираем отступ */
+        padding: 1.5em;
+    }
 }
